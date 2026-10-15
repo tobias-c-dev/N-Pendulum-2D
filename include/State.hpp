@@ -5,7 +5,6 @@
 struct Rod {
 
     Vector2 start;
-    Vector2 com;
     Vector2 end;
     float currentTheta;
 
@@ -29,6 +28,5 @@ struct State {
 
     void createRods();
     void update(float dt);
-    
     
 };

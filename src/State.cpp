@@ -4,7 +4,6 @@
 #include <cmath>
 
 
-
 // State functions
 void State::createRods() {
 
