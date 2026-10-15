@@ -5,6 +5,8 @@
 #include <cmath>
 
 constexpr Color ROD_COLOUR = WHITE;
+constexpr float SCREEN_ANCHOR_X = Constants::SCREEN_WIDTH / 2.0f;
+constexpr float SCREEN_ANCHOR_Y = 50.0f;
 
 Renderer::Renderer() {
 
@@ -33,8 +35,11 @@ void Renderer::draw(const State& state) {
 
         // Convert world-space positions to screen-space pixels.
         const Vector2 start = {
-            static_cast<float>(rod.start.x * Constants::PPM),
-            static_cast<float>(rod.start.y * Constants::PPM)
+            SCREEN_ANCHOR_X +
+                static_cast<float>(rod.start.x * Constants::PPM),
+
+            SCREEN_ANCHOR_Y +
+                static_cast<float>(rod.start.y * Constants::PPM)
         };
 
         const float rotationInDegrees =

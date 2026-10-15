@@ -14,9 +14,9 @@ namespace Constants {
     constexpr int PENDULUM_NUMBER = 6;
 
     // Rod 
-    constexpr Position ANCHOR = {SCREEN_WIDTH / 2, 50.0f};
+    constexpr Position ANCHOR = {0.0, 0.0}; // world-anchor in m
     constexpr double DRAG_COEFFICIENT = 1.2;
-    constexpr bool USE_ROD_TEXTURE = true;
+    constexpr bool USE_ROD_TEXTURE = false;
 
     // Analysis
     constexpr double SAMPLE_INTERVAL = 0.01;
