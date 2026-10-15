@@ -21,17 +21,28 @@ Renderer::~Renderer() {
 
 void Renderer::draw(const State& state) {
 
-    for (const Rod& rod: state.rods) {
+    for (int i = 0; i < state.N; ++i) {
 
-        float pixelLength = rod.length * Constants::PPM;
-        float pixelWidth = rod.radius * 2.0f * Constants::PPM;
+        const Rod& rod = state.rods[i];
 
-        float rotationInDegrees =
-            -rod.currentTheta * (180.0f / PI);
+        const float pixelLength =
+            static_cast<float>(state.length[i] * Constants::PPM);
+
+        const float pixelWidth =
+            static_cast<float>(state.radius[i] * 2.0 * Constants::PPM);
+
+        // Convert world-space positions to screen-space pixels.
+        const Vector2 start = {
+            static_cast<float>(rod.start.x * Constants::PPM),
+            static_cast<float>(rod.start.y * Constants::PPM)
+        };
+
+        const float rotationInDegrees =
+            static_cast<float>(-rod.currentTheta * (180.0 / PI));
 
         Rectangle dest = {
-            rod.start.x,
-            rod.start.y,
+            start.x,
+            start.y,
             pixelWidth,
             pixelLength
         };

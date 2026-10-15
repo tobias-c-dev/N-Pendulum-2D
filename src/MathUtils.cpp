@@ -124,7 +124,7 @@ void MathUtils::integrator(State& state, float dt) {
 
 void MathUtils::posUpdate(State& state) {
     
-    Vector2 prev = state.anchor;
+    Position prev = state.anchor;
 
     for (int i=0; i < state.N; i++) {
         
@@ -140,7 +140,7 @@ void MathUtils::posUpdate(State& state) {
         rod.centreOfMass = {
             0.5 * (rod.start.x + rod.end.x),
             0.5 * (rod.start.y + rod.end.y)
-        }
+        };
     
         rod.currentTheta = state.theta[i];
         prev = rod.end;
