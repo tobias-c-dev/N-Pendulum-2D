@@ -11,7 +11,7 @@ public:
     void update(const State& state, double time);
 
 private:
-    double sampleInterval = Constants::SAMPLE_INTERVAL;
+    double sampleInterval;
     double nextTimeSample = 0.0;
 
     std::vector<double> timeHistory;

@@ -1,10 +1,12 @@
 #include <raylib.h>
 #include <raymath.h>
+
 #include "Position.hpp"
 #include "State.hpp"
 #include "Constants.hpp"
 #include "MathUtils.hpp"
 #include "Renderer.hpp"
+#include "Analysis.hpp"
 
 int main() {
 
@@ -26,10 +28,16 @@ int main() {
         state.createRods();
 
     Renderer renderer;
+    Analysis analysis(Constants::SAMPLE_INTERVAL); 
+
+    double simulationTime = 0.0;
 
     while (!WindowShouldClose()) {
         float dt = GetFrameTime();
         state.update(dt);
+
+        simulationTime += dt;
+        analysis.update(state, simulationTime);
 
         BeginDrawing();
             ClearBackground(BLACK);
