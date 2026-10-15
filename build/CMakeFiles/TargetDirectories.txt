@@ -1,3 +1,0 @@
-/home/asthmaticfrog/dev/Physics/NPendulum2D/build/CMakeFiles/NPendulum2D.dir
-/home/asthmaticfrog/dev/Physics/NPendulum2D/build/CMakeFiles/edit_cache.dir
-/home/asthmaticfrog/dev/Physics/NPendulum2D/build/CMakeFiles/rebuild_cache.dir
