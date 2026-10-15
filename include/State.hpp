@@ -1,12 +1,13 @@
 #pragma once
-#include <raylib.h>
+#include "Position.hpp"
 #include <vector>
+
 
 struct Rod {
 
-    Vector2 start;
-    Vector2 centreOfMass;
-    Vector2 end;
+    Position start;
+    Position centreOfMass;
+    Position end;
     float currentTheta;
 
 };
@@ -14,13 +15,13 @@ struct Rod {
 
 struct State {
 
-    Vector2 anchor;
+    Position anchor;
     int N;
 
     // 
-    std::vector<float> length;
-    std::vector<float> radius; 
-    std::vector<float> mass;
+    std::vector<double> length;
+    std::vector<double> radius; 
+    std::vector<double> mass;
     
     std::vector<double> theta;
     std::vector<double> omega;

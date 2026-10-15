@@ -4,6 +4,8 @@
 #include <raymath.h>
 #include <cmath>
 
+constexpr Color ROD_COLOUR = WHITE;
+
 Renderer::Renderer() {
 
     if (Constants::USE_ROD_TEXTURE) {
@@ -54,7 +56,7 @@ void Renderer::draw(const State& state) {
                 dest,
                 origin,
                 rotationInDegrees,
-                WHITE
+                ROD_COLOUR
             );
 
         } 
@@ -65,7 +67,7 @@ void Renderer::draw(const State& state) {
                 dest,
                 origin,
                 rotationInDegrees,
-                WHITE
+                ROD_COLOUR
             );
         }
     }

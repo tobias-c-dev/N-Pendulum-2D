@@ -133,8 +133,8 @@ void MathUtils::posUpdate(State& state) {
         rod.start = prev;
 
         rod.end = {
-            prev.x + state.length[i] * sinf(state.theta[i]),
-            prev.y + state.length[i] * cosf(state.theta[i])
+            prev.x + state.length[i] * sin(state.theta[i]),
+            prev.y + state.length[i] * sin(state.theta[i])
         };
 
         rod.centreOfMass = {

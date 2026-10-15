@@ -1,5 +1,6 @@
 #include <raylib.h>
 #include <raymath.h>
+#include "Position.hpp"
 #include "State.hpp"
 #include "Constants.hpp"
 #include "MathUtils.hpp"
