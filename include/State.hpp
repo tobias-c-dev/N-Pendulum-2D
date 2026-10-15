@@ -5,15 +5,9 @@
 struct Rod {
 
     Vector2 start;
+    Vector2 com;
     Vector2 end;
-    float length;
-    float radius;
-    float mass;
-    Color colour;
     float currentTheta;
-
-    Vector2 centreOfMass(int rod_index, const std::vector<double>& theta, const std::vector<float>& length);        // could be put in mathutils
-    
 
 };
 
@@ -23,13 +17,14 @@ struct State {
     Vector2 anchor;
     int N;
 
-    std::vector<Vector2> start;
-    std::vector<Vector2> end;
+    // 
     std::vector<float> length;
     std::vector<float> radius; 
     std::vector<float> mass;
+    
     std::vector<double> theta;
     std::vector<double> omega;
+    
     std::vector<Rod> rods;
 
     void createRods();
