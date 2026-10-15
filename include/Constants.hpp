@@ -18,5 +18,7 @@ namespace Constants {
     constexpr double DRAG_COEFFICIENT = 1.2;
     constexpr bool USE_ROD_TEXTURE = true;
 
+    // Analysis
+    constexpr double SAMPLE_INTERVAL = 0.01;
 
 }
