@@ -6,7 +6,7 @@
 
 class Analysis {
 public:
-    Analysis(double sampleInterval);
+    explicit Analysis(double sampleInterval);
 
     void update(const State& state, double time);
 
@@ -17,4 +17,4 @@ private:
     std::vector<double> timeHistory;
     std::vector<std::vector<Position>> comHistory;
 
-};
+}; 
