@@ -1,8 +1,10 @@
 #include <cmath>
+#include <algorithm>
 #include "MathUtils.hpp"
+#include "Constants.hpp"
 
 // Derivative evaluator to help with RK4
-Derivative MathUtils::evaluate(State& state) {
+Derivative MathUtils::evaluate(const State& state) {
     Eigen::MatrixXd M(state.N, state.N);
     Eigen::VectorXd f(state.N);
     buildMassMatrix(M, state);
@@ -16,7 +18,7 @@ Derivative MathUtils::evaluate(State& state) {
 
 
 // Creates mass matrix from euler-lagrange equations
-void MathUtils::buildMassMatrix(Eigen::MatrixXd& M, State& state) {
+void MathUtils::buildMassMatrix(Eigen::MatrixXd& M, const State& state) {
     
     int N = state.N;
     M.setZero();
@@ -40,7 +42,7 @@ void MathUtils::buildMassMatrix(Eigen::MatrixXd& M, State& state) {
 
 
 // Creates forcing vector from euler-lagrange equations
-void MathUtils::buildForcingVector(Eigen::VectorXd& f, State& state) {
+void MathUtils::buildForcingVector(Eigen::VectorXd& f, const State& state) {
     
     int N = state.N;
     f.setZero();
@@ -78,7 +80,7 @@ void MathUtils::buildForcingVector(Eigen::VectorXd& f, State& state) {
 
 // RK4 integration, will return angle values
 
-void MathUtils::integrator(State& state, Eigen::MatrixXd& M, Eigen::VectorXd& f, float dt) {
+void MathUtils::integrator(State& state, float dt) {
 
     int N = state.N;
 
@@ -118,21 +120,29 @@ void MathUtils::integrator(State& state, Eigen::MatrixXd& M, Eigen::VectorXd& f,
 }
 
 
-// Updates position of each rod
+// Updates position of each rod and calculates centre of mass
 
 void MathUtils::posUpdate(State& state) {
+    
     Vector2 prev = state.anchor;
 
     for (int i=0; i < state.N; i++) {
-        state.rods[i].start = prev;
+        
+        Rod& rod = state.rods[i];
 
-        Vector2 end = {
-            prev.x + state.length[i] * Constants::PPM * sinf(state.theta[i]),
-            prev.y + state.length[i] * Constants::PPM * cosf(state.theta[i])
+        rod.start = prev;
+
+        rod.end = {
+            prev.x + state.length[i] * sinf(state.theta[i]),
+            prev.y + state.length[i] * cosf(state.theta[i])
         };
+
+        rod.centreOfMass = {
+            0.5 * (rod.start.x + rod.end.x),
+            0.5 * (rod.start.y + rod.end.y)
+        }
     
-        state.rods[i].end = end;
-        state.rods[i].currentTheta = state.theta[i];
-        prev = end;
+        rod.currentTheta = state.theta[i];
+        prev = rod.end;
     }
 }

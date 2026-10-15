@@ -2,7 +2,6 @@
 #include <vector>
 #include <Eigen/Dense>
 #include "State.hpp"
-#include "Constants.hpp"
 
 struct Derivative {
 
@@ -13,10 +12,24 @@ struct Derivative {
 
 namespace MathUtils {
 
-    Derivative evaluate(State& state);
-    void buildMassMatrix(Eigen::MatrixXd& M, State& state);
-    void buildForcingVector(Eigen::VectorXd& f, State& state);
-    void integrator(State& state, Eigen::MatrixXd& M, Eigen::VectorXd& f, float dt);
+    Derivative evaluate(const State& state);
+
+    void buildMassMatrix(
+        Eigen::MatrixXd& M, 
+        const State& state
+    );
+
+    void buildForcingVector(
+        Eigen::VectorXd& f, 
+        const State& state
+    );
+
+    void integrator(
+        State& state, 
+        float dt
+    );
+
     void posUpdate(State& state);
+    
     void grapher(State& state);
 }
