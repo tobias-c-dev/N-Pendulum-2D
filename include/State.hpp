@@ -13,7 +13,7 @@ struct Rod {
     float currentTheta;
 
     Vector2 centreOfMass(int rod_index, const std::vector<double>& theta, const std::vector<float>& length);        // could be put in mathutils
-    void draw(Texture2D texture);
+    
 
 };
 
@@ -34,6 +34,6 @@ struct State {
 
     void createRods();
     void update(float dt);
-    void draw(Texture2D texture);
+    
     
 };

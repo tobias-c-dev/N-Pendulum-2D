@@ -6,10 +6,11 @@ class State;
 class Renderer{
 public:
     Renderer();
+    ~Renderer();
 
     void draw(const State& state);
 
 private:
-    Texture2D rodTexture;
+    Texture2D rodTexture{};
 };
 
