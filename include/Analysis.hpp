@@ -1,11 +1,7 @@
 #pragma once
 #include "State.hpp"
-
-
-struct Position {
-    double x;
-    double y;
-};
+#include "Position.hpp"
+#include <vector>
 
 
 class Analysis {
@@ -16,7 +12,7 @@ public:
 
 private:
     double sampleInterval;
-    double timeSinceLastSample = 0.0;
+    double nextTimeSample = 0.0;
 
     std::vector<double> timeHistory;
     std::vector<std::vector<Position>> comHistory;
