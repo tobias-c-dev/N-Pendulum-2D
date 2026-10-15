@@ -17,5 +17,7 @@ namespace Constants {
     constexpr Vector2 ANCHOR = {SCREEN_WIDTH / 2, 50.0f};
     constexpr Color COLOUR = RAYWHITE;
     constexpr double DRAG_COEFFICIENT = 1.2;
+    constexpr bool USE_ROD_TEXTURE = false;
+
 
 }

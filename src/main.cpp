@@ -11,7 +11,11 @@ int main() {
     InitAudioDevice();
     SetTargetFPS(60);
 
-    Texture2D rodTexture = LoadTexture("../assets/Scrun.png");
+    Texture2D rodTexture = {};
+
+    if (Constants::USE_ROD_TEXTURE) {
+        rodTexture = LoadTexture("../assets/Scrun.png");
+    }
 
     State state;
         state.anchor = Constants::ANCHOR;
@@ -36,7 +40,9 @@ int main() {
         EndDrawing();
     }
 
-    UnloadTexture(rodTexture);
+    if (Constants::USE_ROD_TEXTURE) {
+        UnloadTexture(rodTexture);
+    }
 
     CloseWindow();
     return 0;
