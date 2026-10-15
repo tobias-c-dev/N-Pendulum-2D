@@ -5,6 +5,7 @@
 struct Rod {
 
     Vector2 start;
+    Vector2 centreOfMass;
     Vector2 end;
     float currentTheta;
 
