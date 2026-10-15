@@ -19,7 +19,7 @@ int main() {
         state.anchor = Constants::ANCHOR;
         state.N = Constants::PENDULUM_NUMBER;
         state.length =  {1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f};
-        state.radius =  {0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f};
+        state.radius =  {0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f};
         state.mass =    {55.0f, 55.0f, 55.0f, 55.0f, 55.0f, 55.0f};
         state.theta =   {1.2f, 1.5f, 1.1f, 1.1f, 1.2f, 1.5f};
         state.omega =   {1.0f, 2.0f, 0.3f, 1.0f, 1.0f, 2.0f};
