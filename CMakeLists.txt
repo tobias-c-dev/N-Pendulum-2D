@@ -13,6 +13,7 @@ add_executable(N-Pendulum-2D
     src/State.cpp
     src/MathUtils.cpp
     src/Renderer.cpp
+    src/Analysis.cpp
 )
 
 target_include_directories(N-Pendulum-2D
