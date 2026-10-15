@@ -22,21 +22,6 @@ Vector2 Rod::centreOfMass(int rod_index, const std::vector<double>& theta, const
     return {x, -y};
 }
 
-void Rod::draw(Texture2D texture) {
-    float pixelLength = length * Constants::PPM;
-    float pixelWidth = radius * 2.0f * Constants::PPM;
-
-    Rectangle source = { 0.0f, 0.0f, (float)texture.width, (float)texture.height };
-    Rectangle dest = { start.x, start.y, pixelWidth, pixelLength };
-
-    Vector2 origin = { pixelWidth / 2.0f, 0.0f };
-
-    float rotationInDegrees = -currentTheta * (180.0f / PI);
-
-    DrawTexturePro(texture, source, dest, origin, rotationInDegrees, WHITE);
-}
-
-
 
 
 // State functions
@@ -67,10 +52,4 @@ void State::update(float dt) {
     MathUtils::integrator(*this, M, f, dt);
     MathUtils::posUpdate(*this);
 
-}
-
-void State::draw(Texture2D texture) {
-    for (Rod& rod : rods) {
-        rod.draw(texture);
-    }
 }

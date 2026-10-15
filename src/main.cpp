@@ -3,6 +3,7 @@
 #include "State.hpp"
 #include "Constants.hpp"
 #include "MathUtils.hpp"
+#include "Renderer.hpp"
 
 int main() {
 
@@ -10,12 +11,6 @@ int main() {
     InitWindow(Constants::SCREEN_WIDTH, Constants::SCREEN_HEIGHT, "Game Window");
     InitAudioDevice();
     SetTargetFPS(60);
-
-    Texture2D rodTexture = {};
-
-    if (Constants::USE_ROD_TEXTURE) {
-        rodTexture = LoadTexture("../assets/Scrun.png");
-    }
 
     State state;
         state.anchor = Constants::ANCHOR;
@@ -29,6 +24,7 @@ int main() {
 
         state.createRods();
 
+    Renderer renderer;
 
     while (!WindowShouldClose()) {
         float dt = GetFrameTime();
@@ -36,12 +32,8 @@ int main() {
 
         BeginDrawing();
             ClearBackground(BLACK);
-            state.draw(rodTexture);
+            renderer.draw(state);
         EndDrawing();
-    }
-
-    if (Constants::USE_ROD_TEXTURE) {
-        UnloadTexture(rodTexture);
     }
 
     CloseWindow();

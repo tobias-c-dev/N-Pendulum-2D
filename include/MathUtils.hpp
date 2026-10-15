@@ -18,4 +18,5 @@ namespace MathUtils {
     void buildForcingVector(Eigen::VectorXd& f, State& state);
     void integrator(State& state, Eigen::MatrixXd& M, Eigen::VectorXd& f, float dt);
     void posUpdate(State& state);
+    void grapher(State& state);
 }
