@@ -1,5 +1,5 @@
 #pragma once
-#include <raylib.h>
+#include "Position.hpp"
 
 namespace Constants {
 
@@ -14,8 +14,7 @@ namespace Constants {
     constexpr int PENDULUM_NUMBER = 6;
 
     // Rod 
-    constexpr Vector2 ANCHOR = {SCREEN_WIDTH / 2, 50.0f};
-    constexpr Color COLOUR = RAYWHITE;
+    constexpr Position ANCHOR = {SCREEN_WIDTH / 2, 50.0f};
     constexpr double DRAG_COEFFICIENT = 1.2;
     constexpr bool USE_ROD_TEXTURE = true;
 
