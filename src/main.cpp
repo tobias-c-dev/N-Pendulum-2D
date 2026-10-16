@@ -45,6 +45,8 @@ int main() {
         EndDrawing();
     }
 
+    analysis.exportCSV("../data/pendulum.csv");
+
     CloseWindow();
     return 0;
 }

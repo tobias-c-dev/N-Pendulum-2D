@@ -2,6 +2,7 @@
 #include "State.hpp"
 #include "Position.hpp"
 #include <vector>
+#include <string>
 
 
 class Analysis {
@@ -9,6 +10,7 @@ public:
     explicit Analysis(double sampleInterval);
 
     void update(const State& state, double time);
+    void exportCSV(const std::string& filename) const;
 
 private:
     double sampleInterval;
