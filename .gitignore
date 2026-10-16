@@ -1,7 +1,9 @@
 build/
 
-data/*
-!data/.gitkeep
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
 
 assets/*
 !assets/.gitkeep

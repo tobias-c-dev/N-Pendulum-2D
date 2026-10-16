@@ -11,7 +11,7 @@ constexpr float SCREEN_ANCHOR_Y = 50.0f;
 Renderer::Renderer() {
 
     if (Constants::USE_ROD_TEXTURE) {
-        rodTexture = LoadTexture("../assets/Lewis.png");
+        rodTexture = LoadTexture("assets/Lewis.png");
     }
 }
 

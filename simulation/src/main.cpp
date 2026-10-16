@@ -1,5 +1,6 @@
 #include <raylib.h>
 #include <raymath.h>
+#include <string>
 
 #include "Position.hpp"
 #include "State.hpp"
@@ -7,6 +8,8 @@
 #include "MathUtils.hpp"
 #include "Renderer.hpp"
 #include "Analysis.hpp"
+
+const std::string& raw_data_file = "../data/raw/pendulum.csv";
 
 int main() {
 
@@ -45,7 +48,7 @@ int main() {
         EndDrawing();
     }
 
-    analysis.exportCSV("../data/pendulum.csv");
+    analysis.exportCSV(raw_data_file);
 
     CloseWindow();
     return 0;

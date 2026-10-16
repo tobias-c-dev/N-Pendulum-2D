@@ -9,16 +9,16 @@ find_package(raylib REQUIRED)
 find_package(Eigen3 REQUIRED)
 
 add_executable(N-Pendulum-2D
-    src/main.cpp
-    src/State.cpp
-    src/MathUtils.cpp
-    src/Renderer.cpp
-    src/Analysis.cpp
+    simulation/src/main.cpp
+    simulation/src/State.cpp
+    simulation/src/MathUtils.cpp
+    simulation/src/Renderer.cpp
+    simulation/src/Analysis.cpp
 )
 
 target_include_directories(N-Pendulum-2D
     PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/simulation/include
 )
 
 target_link_libraries(N-Pendulum-2D
