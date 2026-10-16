@@ -1,4 +1,9 @@
 build/
-*.png
-data/*.png
+
+data/*
+!data/.gitkeep
+
+assets/*
+!data/.gitkeep
+
 .venv/
