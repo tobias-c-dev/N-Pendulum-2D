@@ -86,7 +86,7 @@ void Analysis::update(const State& state, double time){
             });
         }
 
-        for (int i; i=0; i<N){
+        for (int i=0; i<N; i++){
             thetas.push_back(state.theta[i]);
             omegas.push_back(state.omega[i]);
         }
