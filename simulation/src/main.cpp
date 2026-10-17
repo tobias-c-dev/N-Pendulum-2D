@@ -1,6 +1,7 @@
 #include <raylib.h>
 #include <raymath.h>
 #include <string>
+#include <algorithm>        
 
 #include "Position.hpp"
 #include "State.hpp"
@@ -34,13 +35,23 @@ int main() {
     Analysis analysis(Constants::SAMPLE_INTERVAL); 
 
     double simulationTime = 0.0;
+    double accumulator = 0.0;
+    const double fixedDt = 0.001;
+
 
     while (!WindowShouldClose()) {
-        float dt = GetFrameTime();
-        state.update(dt);
+        float frameDt = GetFrameTime();
+        frameDt = std::min(frameDt, 0.1f);
+        accumulator += frameDt;
 
-        simulationTime += dt;
-        analysis.update(state, simulationTime);
+        while (accumulator >= fixedDt) {
+            state.update(static_cast<float>(fixedDt));
+
+            simulationTime += fixedDt;
+            analysis.update(state, simulationTime);
+
+            accumulator -= fixedDt;
+        }
 
         BeginDrawing();
             ClearBackground(BLACK);
