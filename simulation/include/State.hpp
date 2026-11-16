@@ -31,6 +31,6 @@ struct State {
     double total_energy;
 
     void createRods();
-    void update(float dt);
+    void update(double dt);
     
 };

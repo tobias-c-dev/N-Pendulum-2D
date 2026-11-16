@@ -45,7 +45,7 @@ int main() {
         accumulator += frameDt;
 
         while (accumulator >= fixedDt) {
-            state.update(static_cast<float>(fixedDt));
+            state.update(fixedDt);
 
             simulationTime += fixedDt;
             analysis.update(state, simulationTime);

@@ -12,7 +12,7 @@ void State::createRods() {
 
 }
 
-void State::update(float dt) {
+void State::update(double dt) {
 
     MathUtils::integrator(*this, dt);
     MathUtils::posUpdate(*this);
