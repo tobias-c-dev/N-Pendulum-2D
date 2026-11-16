@@ -16,5 +16,7 @@ void State::update(float dt) {
 
     MathUtils::integrator(*this, dt);
     MathUtils::posUpdate(*this);
+    
+    MathUtils::energyCalculator(*this);
 
 }

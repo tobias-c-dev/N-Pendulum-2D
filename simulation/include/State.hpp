@@ -28,6 +28,8 @@ struct State {
     
     std::vector<Rod> rods;
 
+    double total_energy;
+
     void createRods();
     void update(float dt);
     

@@ -20,5 +20,6 @@ private:
     std::vector<std::vector<double>> thetaHistory;
     std::vector<std::vector<double>> omegaHistory;
     std::vector<std::vector<Position>> comHistory;
+    std::vector<double> energyHistory;
 
 }; 

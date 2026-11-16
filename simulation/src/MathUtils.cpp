@@ -120,6 +120,39 @@ void MathUtils::integrator(State& state, float dt) {
 }
 
 
+// Calculates total system energy at each timestep
+
+void MathUtils::energyCalculator(State& state) {
+
+    double T = 0.0;
+    double V = 0.0;
+
+    double vx = 0.0, vy = 0.0, y = 0.0;
+
+    for (int i = 0; i < state.N; i++) {
+        const double L  = state.length[i];
+        const double m  = state.mass[i];
+        const double th = state.theta[i];
+        const double w  = state.omega[i];
+        const double c  = 0.5 * L;
+
+        const double vcx = vx + c * cos(th) * w;
+        const double vcy = vy - c * sin(th) * w;
+
+        T += 0.5 * m * (vcx * vcx + vcy * vcy);
+        T += 0.5 * (1.0 / 12.0) * m * L * L * w * w;
+
+        V -= m * Constants::GRAVITY * (y + c * cos(th));
+
+        vx += L * cos(th) * w;
+        vy -= L * sin(th) * w;
+        y += L * cos(th); 
+    }
+    
+    state.total_energy = T + V;
+}
+
+
 // Updates position of each rod and calculates centre of mass
 
 void MathUtils::posUpdate(State& state) {

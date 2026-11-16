@@ -30,5 +30,5 @@ namespace MathUtils {
 
     void posUpdate(State& state);
     
-    void grapher(State& state);
+    void energyCalculator(State& state);
 }

@@ -38,6 +38,8 @@ void Analysis::exportCSV(const std::string& filename) const{
         file << ",com_y_" << i;
     }
 
+    file << ",energy";
+
     file << '\n';
 
     // Data
@@ -59,11 +61,13 @@ void Analysis::exportCSV(const std::string& filename) const{
             file << "," << comHistory[t][i].y;
         }
 
+        file << "," << energyHistory[t];
+
         file << '\n';
     }
 }
 
-
+ 
 void Analysis::update(const State& state, double time){
 
     if (time >= nextTimeSample) {
@@ -94,6 +98,7 @@ void Analysis::update(const State& state, double time){
         comHistory.push_back(coms);
         thetaHistory.push_back(thetas);
         omegaHistory.push_back(omegas);
+        energyHistory.push_back(state.total_energy);
 
         nextTimeSample += sampleInterval;
     }

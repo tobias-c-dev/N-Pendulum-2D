@@ -65,3 +65,17 @@ plt.title("Phase Space of Rod 5")
 
 plt.savefig("data/processed/phase5.png")
 plt.close()
+
+
+# 5. Energy vs time
+
+plt.figure()
+
+plt.plot(data["time"], np.abs(data["energy"]))
+
+plt.xlabel("Time (s)")
+plt.ylabel("Total Energy (J)")
+plt.title("Total Energy of system")
+
+plt.savefig("data/processed/energy_time.png")
+plt.close()
